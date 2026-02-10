@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Getting Started with GitHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            display: block;
+            padding: 1rem 0;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .nav a:hover, .nav a.active {
+            border-bottom-color: #667eea;
+        }
+        
+        .content {
+            padding: 3rem 0;
+        }
+        
+        .main-content {
+            max-width: 800px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-box {
+            background: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .tip-box h4 {
+            color: #689f38;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .step h4 {
+            display: inline-block;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav-button:hover {
+            background: #764ba2;
+        }
+        
+        .nav-button.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="chapter-number">Chapter 1</div>
+            <h1>Getting Started with GitHub</h1>
+        </div>
+    </div>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html">Home</a>
+            <a href="chapter-01.html" class="active">Getting Started</a>
+            <a href="chapter-02.html">Your Template</a>
+            <a href="chapter-03.html">Writing Content</a>
+            <a href="chapter-04.html">Publishing</a>
+        </div>
+    </nav>
+    
+    <div class="container content">
+        <div class="main-content">
+            <h2>What is GitHub?</h2>
+            <p>GitHub is a platform where people store and share their work. Think of it like a special kind of Google Drive designed specifically for documents that change over time. While it's popular with programmers, it's also perfect for creating and publishing course materials.</p>
+            
+            <div class="info-box">
+                <h4>Why GitHub for Training Materials?</h4>
+                <ul>
+                    <li><strong>Free hosting:</strong> GitHub will host your course website for free</li>
+                    <li><strong>Version control:</strong> Keep track of all changes to your materials</li>
+                    <li><strong>Collaboration:</strong> Others can suggest improvements</li>
+                    <li><strong>Professional:</strong> Widely used in education and training</li>
+                </ul>
+            </div>
+            
+            <h2>Understanding Key Concepts</h2>
+            
+            <h3>Repository (or "Repo")</h3>
+            <p>A repository is like a project folder that contains all your files. For your course materials, you'll create one repository that holds all your chapters, images, and website files.</p>
+            
+            <h3>GitHub Pages</h3>
+            <p>This is GitHub's feature that turns your files into a live website. You don't need to set up a server or buy hosting—GitHub does it all for you automatically.</p>
+            
+            <h3>Markdown</h3>
+            <p>A simple way to format text that's much easier than HTML. You'll use this to write your course content. For example:</p>
+            
+            <div class="code-block">
+# This becomes a heading
+**This becomes bold**
+- This becomes a bullet point
+            </div>
+            
+            <h2>Setting Up Your First Repository</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Log into GitHub</h4>
+                <p>Go to <code>github.com</code> and log in with your account credentials.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Create a New Repository</h4>
+                <p>Click the green "New" button or the "+" icon in the top-right corner, then select "New repository".</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Configure Your Repository</h4>
+                <p>Fill in the following details:</p>
+                <ul>
+                    <li><strong>Repository name:</strong> Choose something descriptive like <code>my-course-materials</code> (use lowercase and hyphens instead of spaces)</li>
+                    <li><strong>Description:</strong> Add a brief description like "Training materials for my data science course"</li>
+                    <li><strong>Public/Private:</strong> Choose "Public" (required for free GitHub Pages hosting)</li>
+                    <li><strong>Initialize with README:</strong> Check this box</li>
+                </ul>
+                <p>Click "Create repository"</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Tip: Repository Naming</h4>
+                <p>If you name your repository <code>username.github.io</code> (replacing "username" with your actual GitHub username), it will be accessible at a shorter URL. For example, if your username is "janedoe", the repository <code>janedoe.github.io</code> will appear at <code>https://janedoe.github.io</code></p>
+                <p>For other repository names like <code>my-course</code>, the URL will be <code>https://username.github.io/my-course</code></p>
+            </div>
+            
+            <h2>Navigating the Repository Interface</h2>
+            
+            <p>Once your repository is created, you'll see several important areas:</p>
+            
+            <h3>Code Tab</h3>
+            <p>This is where all your files live. You'll spend most of your time here, creating and editing files.</p>
+            
+            <h3>Settings</h3>
+            <p>This is where you'll configure GitHub Pages to publish your website (we'll do this in Chapter 4).</p>
+            
+            <h3>File List</h3>
+            <p>The main area shows all files and folders in your repository. You should see a <code>README.md</code> file that was created automatically.</p>
+            
+            <h2>Creating Your First File</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Add a New File</h4>
+                <p>Click the "Add file" button, then select "Create new file".</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Name Your File</h4>
+                <p>In the filename box, type <code>index.html</code>. This will be your homepage.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Add Content</h4>
+                <p>In the large text box, add this simple content:</p>
+                <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Course Materials&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Course&lt;/h1&gt;
+    &lt;p&gt;This is my first GitHub-hosted course website!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <h4>Commit Your Changes</h4>
+                <p>At the bottom of the page:</p>
+                <ul>
+                    <li>In the first box, write a brief message like "Create homepage"</li>
+                    <li>Leave the second box empty</li>
+                    <li>Make sure "Commit directly to the main branch" is selected</li>
+                    <li>Click "Commit new file"</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4>What is a "Commit"?</h4>
+                <p>A commit is like saving a snapshot of your work. Each time you commit, GitHub saves the state of your files along with a message describing what you changed. This creates a history you can look back on or revert to if needed.</p>
+            </div>
+            
+            <h2>Editing Files</h2>
+            
+            <p>To edit any file in your repository:</p>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Open the File</h4>
+                <p>Click on the filename in your repository's file list.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Click Edit</h4>
+                <p>Click the pencil icon (✏️) on the right side, labeled "Edit this file".</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Make Your Changes</h4>
+                <p>Edit the content in the text editor.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <h4>Commit Your Changes</h4>
+                <p>Scroll down, add a commit message describing what you changed, and click "Commit changes".</p>
+            </div>
+            
+            <h2>Creating Folders</h2>
+            
+            <p>GitHub doesn't have a "create folder" button. Instead, you create folders by including them in a filename:</p>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Create a New File</h4>
+                <p>Click "Add file" → "Create new file".</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Type a Path</h4>
+                <p>In the filename box, type: <code>chapters/chapter-01.html</code></p>
+                <p>When you type the forward slash (<code>/</code>), GitHub automatically creates the "chapters" folder.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Add Content and Commit</h4>
+                <p>Add your content and commit the file as usual.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Tip: Organizing Your Files</h4>
+                <p>A typical structure for course materials might look like:</p>
+                <div class="code-block">
+my-course-materials/
+├── index.html (homepage)
+├── chapters/
+│   ├── chapter-01.html
+│   ├── chapter-02.html
+│   └── chapter-03.html
+├── images/
+│   ├── diagram-01.png
+│   └── logo.png
+└── styles/
+    └── main.css
+                </div>
+            </div>
+            
+            <h2>Uploading Files (Images, PDFs, etc.)</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Navigate to the Right Folder</h4>
+                <p>If you want to upload to a specific folder (like "images"), click into that folder first. If you want to upload to the main directory, stay at the repository root.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Upload Files</h4>
+                <p>Click "Add file" → "Upload files".</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Drag and Drop</h4>
+                <p>Drag your files into the upload area, or click "choose your files" to browse your computer.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <h4>Commit</h4>
+                <p>Add a commit message like "Add course images" and click "Commit changes".</p>
+            </div>
+            
+            <h2>Practice Exercise</h2>
+            
+            <div class="info-box">
+                <h4>Try This:</h4>
+                <ol>
+                    <li>Create a new repository (if you haven't already)</li>
+                    <li>Create an <code>index.html</code> file with a welcome message</li>
+                    <li>Create a folder called <code>images</code></li>
+                    <li>Upload any image to the <code>images</code> folder</li>
+                    <li>Edit your <code>index.html</code> to add a new paragraph</li>
+                </ol>
+                <p>Congratulations! You've learned the basics of working with GitHub through the web interface.</p>
+            </div>
+            
+            <h2>Summary</h2>
+            
+            <p>In this chapter, you learned:</p>
+            <ul>
+                <li>What GitHub is and why it's useful for course materials</li>
+                <li>How to create a repository</li>
+                <li>How to create, edit, and organize files using only the web interface</li>
+                <li>How to upload images and other files</li>
+                <li>What commits are and how to write good commit messages</li>
+            </ul>
+            
+            <p>In the next chapter, we'll create a custom template for your course materials with your own branding and styling.</p>
+            
+            <div class="navigation">
+                <a href="index.html" class="nav-button">← Back to Home</a>
+                <a href="chapter-02.html" class="nav-button">Next: Creating Your Template →</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>GitHub Training Materials Guide | Chapter 1: Getting Started</p>
+        </div>
+    </footer>
+</body>
+</html>
